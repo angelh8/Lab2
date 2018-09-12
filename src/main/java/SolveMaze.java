@@ -17,6 +17,25 @@ public class SolveMaze {
      */
 
     public static void main(final String[] unused) {
+        while (isFinished() == false) {
+            turnRight();
+            if (canMove() == true) {
+                move();
+            } else {
+                turnLeft();
+                turnLeft();
+                if (canMove()== true) {
+                    move();
+                } else{
+                    turnRight();
+                }  if (canMove()== true){
+                    turnRight();
+                    turnRight();
+                    move();
+                }
+            }
+        }
+
         /*
          * Create a new 10 x 10 maze. Feel free to change these values.
          */
@@ -26,8 +45,8 @@ public class SolveMaze {
          * Pick (0, 0), the bottom left corner, as the starting point.
          * Put the end in the top right corner.
          */
-        maze.startAtZero();
-        maze.endAtTopRight();
+        maze.startAtZero(int 0, int 0);
+        maze.endAtTopRight(int 10, int 10);
 
         /*
          * You should be able to solve a 10 x 10 maze in (far fewer than) 1000 steps.
